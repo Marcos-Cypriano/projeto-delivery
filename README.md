@@ -8,11 +8,9 @@ Token > jsonwebtoken
 
 
 Allows register client and deliveryman.
-Authenticate clients allowing delivery order. 
-Authenticate deliveryman allowing catching a delivery and updatind it with the time of delivery.
-
-
-
+Authenticate clients allowing delivery order (item beeing just a text). 
+Authenticate deliveryman allowing to take a delivery and update it with the date when he made the delivery.
+All responses are in JSON.
 
 Lembretes das contas cadastradas para testes:
 Clients
