@@ -4,8 +4,8 @@ import { sign } from "jsonwebtoken"
 
 
 interface IAuthtenticateDeliveryman {
-    username: String,
-    password: String
+    username: string,
+    password: string
 }
 
 export class AuthenticateDeliverymanUseCase {
@@ -20,6 +20,7 @@ export class AuthenticateDeliverymanUseCase {
             }
         })
 
+        //Tratando usuário não cadastrado
         if (!deliveryman) {
             throw new Error("Invalid username!")
         }

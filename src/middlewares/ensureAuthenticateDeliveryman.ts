@@ -8,6 +8,7 @@ interface IPayload {
 export async function ensureAuthenticateDeliveryman(req: Request, res: Response, next: NextFunction) {
     const authHeader = req.headers.authorization
 
+    //Tratando falta do token
     if (!authHeader) {
         return res.status(401).json({
             message: "Token missing!"
@@ -16,6 +17,7 @@ export async function ensureAuthenticateDeliveryman(req: Request, res: Response,
 
     const [, token ] = authHeader.split(' ')
 
+    //Verificando validade do token
     try {
         const { sub }  = verify(token, "f58fd21e84af505a65b83bc7217b3090") as IPayload
         

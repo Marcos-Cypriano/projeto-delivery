@@ -2,8 +2,8 @@ import { prisma } from "../../../../database/prismaClient";
 import { hash } from "bcrypt"
 
 interface ICreateDeliveryman {
-    username: String,
-    password: String
+    username: string,
+    password: string
 }
 
 export class CreateDeliverymanUseCase {
@@ -19,6 +19,7 @@ export class CreateDeliverymanUseCase {
             }
         })
 
+        //Tratando usuário já existente
         if(deliverymanExist){
             throw new Error("Deliveryman already exists!");
         }
@@ -26,7 +27,7 @@ export class CreateDeliverymanUseCase {
         //CRIPTOGRAFANDO SENHA
         const hashPassword = await hash(password, 10)
 
-        //CRIANDO NOVO CLIENT
+        //CRIANDO NOVO DELIVERYMAN
         const deliveryman = await prisma.deliveryman.create({
             data: {
                 username,

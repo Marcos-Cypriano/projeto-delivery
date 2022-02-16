@@ -3,8 +3,8 @@ import { hash } from "bcrypt"
 
 
 interface ICreateClient {
-    username: String,
-    password: String
+    username: string,
+    password: string
 }
 
 export class CreateClientUseCase {
@@ -20,6 +20,7 @@ export class CreateClientUseCase {
             }
         })
 
+        //Tratando usuário já existente
         if(clientExist){
             throw new Error("Client already exists!");
         }
